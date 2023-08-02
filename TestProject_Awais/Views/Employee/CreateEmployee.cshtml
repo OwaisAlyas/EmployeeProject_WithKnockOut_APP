@@ -1,0 +1,45 @@
+﻿<body>
+    <h2>
+        Create
+    </h2>
+    <form id="Employeeform">
+        <table>
+            <tr>
+                <td><label class="editor-label">Employee Number</label></td>
+                <td><input id="txtFriendName" data-bind="value: EmployeeNo" type="text" /></td>
+            </tr>
+            <tr>
+                <td><label class="editor-label"> Employee First Name</label></td>
+                <td><input data-bind="value: FullName" type="text" /></td>
+            </tr>
+            <tr>
+                <td><label class="editor-label">Department</label></td>
+                <td>
+                    <select id="DepartmentList" data-field="userId" data-bind="options: Department,
+                                                optionsText: 'DepartmentName',
+                                                optionsValue: 'DepartmentId',
+                            
+                                                optionsCaption: 'Choose a Department ...'"></select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="editor-label">Location</label></td>
+                <td>
+                    <select id="LocationList" data-bind="options: Location,
+                    optionsText: 'LocationName',
+                    optionsValue: 'LocationId',
+                    optionsCaption: 'Choose a Location ...'"></select>
+                </td>
+            </tr>
+        </table>
+        <input id="btnsubmit" type="button" value="Submit" data-bind="click: SaveEmployee"/>
+    </form>
+
+    <div>
+        <a href="@Url.Action("Index", "Employee" )">Back to List</a>
+    </div>
+
+</body>
+@section Scripts {
+    @Scripts.Render("~/Scripts/ViewModel/CreateVM.js")
+}

@@ -1,0 +1,54 @@
+﻿<h2>Edit</h2>
+<legend>Edit Employee</legend>
+<form id="Employeeform">
+    <table>
+        <tr>
+            <td><label class="editor-label">Employee Id</label></td>
+            <td><input disabled id="employeeId" @*data-bind="value: Id"*@ type="text" value="@ViewBag.InitialData.Id" /></td>
+
+        </tr>
+        <tr>
+            
+        </tr>
+        <tr>
+            <td><label class="editor-label">Employee Number</label></td>
+            <td><input id="employeeNo" @*data-bind="value: EmployeeNo"*@ type="text" value="@ViewBag.InitialData.EmployeeNo" /></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td><label class="editor-label"> Employee First Name</label></td>
+            <td><input id="fullName" type="text" value="@ViewBag.InitialData.FullName" /></td>
+        </tr>
+
+        <tr></tr>
+        <tr>
+            <td><label class="editor-label">Department</label></td>
+            <td>
+                <select id="DepartmentList" @*value="@ViewBag.InitialData.DepartmentId"*@ data-field="userId" data-bind="options: Department,
+                                                optionsText: 'DepartmentName',
+                                                optionsValue: 'DepartmentId',
+                                                value: @ViewBag.InitialData.DepartmentId,
+                                                optionsCaption: 'Choose a Department ...'"></select>
+            </td>
+
+        </tr>
+        <tr></tr>
+        <tr>
+            <td><label class="editor-label">Location</label></td>
+            <td>
+                <select id="LocationList" data-bind="options: Location,
+                    optionsText: 'LocationName',
+                    optionsValue: 'LocationId',
+                    optionsCaption: 'Choose a Location ...'"></select>
+            </td>
+            
+        </tr>
+    </table>
+    <input id="btnsubmit" type="button" value="Submit" data-bind="click: UpdateEmployee" />
+</form>
+<div>
+    <a href="@Url.Action("Index", "Employee")">Back to List</a>
+</div>
+@section Scripts {
+    @Scripts.Render("~/Scripts/ViewModel/EditVM.js")
+}
